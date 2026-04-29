@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  font-size: 14px; /* 1. التصميم الأساسي (للموبايل - أصغر من 600px) */
+}
+
+/* 2. شاشات التابلت (Tablet - أكبر من 600px) */
+@media screen and (min-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* 3. شاشات اللابتوب/الشاشات الصغيرة (Laptop - أكبر من 992px) */
+@media screen and (min-width: 992px) {
+  .container {
+    width: 960px;
+    margin: auto;
+  }
+}
+
+/* 4. الشاشات الكبيرة (Desktop - أكبر من 1200px) */
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+
+/*  Variable Color  */
+:root {
+  --main-color: #e7e0e0;
+  --main-color-green: aquamarine;
+  --main-color-text: #316c97;
+  --main-color-cheackbox: #23cc71;
+}
+
+.todo-container {
+  width: fit-content;
+  margin: auto;
+  margin-top: 50px;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 15px;
+}
+/*var(--main-color);*/
+.input-section {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+#input-task {
+  border: 1px solid #70b8bf;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: var(--main-color-text);
+}
+
+#btn-add {
+  background-color: var(--main-color-green);
+  border: 1px;
+  border-radius: 10px;
+  padding: 10px 15px;
+  /*margin: auto;*/
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  color: aliceblue;
+}
+
+#btn-add:hover {
+  background-color: rgb(140, 255, 127);
+}
+
+.boxes {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.task .title-of-box {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: rgb(87, 76, 76);
+}
+
+/*        Class For JavaScript        */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #70b8bf;
+  border-radius: 7px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  /***/
+  border: 2px solid transparent;
+  border-radius: 15px;
+  background-image: linear-gradient(whitesmoke, whitesmoke),
+    linear-gradient(
+      to right,
+      #70b8bf,
+      orange,
+      rgb(251, 251, 66),
+      rgb(140, 255, 127)
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.task-item button {
+  background-color: rgb(239, 107, 107);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin: auto;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  color: aliceblue;
+  text-align: center;
+}
+
+.task-item button:hover {
+  background-color: rgb(232, 65, 65);
+}
+
+.task-item span {
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px 10px;
+  font-size: 18px;
+  color: var(--main-color-text);
+  font-weight: bold;
+}
+
+.custom-checkbox {
+  -webkit-appearance: none; /* hide the appearance default*/
+  appearance: none;
+
+  /*  Determine dimensions */
+  width: 18px;
+  height: 18px;
+  border: 2px solid #23a7cc;
+  border-radius: 8px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.custom-checkbox:checked {
+  /*  Formatting on click  */
+  background-color: var(--main-color-cheackbox);
+  border-color: var(--main-color-cheackbox);
+}
+
+.custom-checkbox:checked::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.custom-checkbox:hover {
+  border-color: var(--main-color-cheackbox);
+  background-color: rgba(62, 234, 134, 0.1);
+}
